@@ -16,11 +16,11 @@
             theme: {
                 extend: {
                     colors: {
-                        // Assuming a Rose/Pink primary based on "shadow-pink-200"
                         primary: '#e11d48', 
-                        cream: '#FDFBF7', // Approximate cream color
+                        cream: '#FDFBF7',
                         slate: {
                             400: '#94a3b8',
+                            600: '#475569',
                             800: '#1e293b',
                         }
                     },
@@ -36,7 +36,6 @@
         body {
             font-family: 'Cairo', sans-serif;
         }
-        /* Smooth bounce animation for the icon */
         @keyframes bounce-slow {
             0%, 100% { transform: translateY(-5%); }
             50% { transform: translateY(5%); }
@@ -62,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="items-center mb-4 text-center">
+            <div class="items-center mb-6 text-center">
                 <h1 class="text-3xl font-black text-primary mb-3">تم تأكيد الإيميل!</h1>
                 <p class="text-slate-400 font-normal text-lg leading-relaxed">
                     شكراً لتأكيد حسابك. <br>
@@ -71,10 +70,13 @@
             </div>
 
             <div class="mt-8 space-y-4">
-                <a href="habayib://login" 
-                   class="block w-full bg-primary py-4 rounded-2xl shadow-lg shadow-pink-200 hover:shadow-pink-300 hover:scale-[1.02] active:scale-95 transition-all duration-200 text-center text-white font-bold text-lg decoration-0">
-                   العودة للتطبيق
-                </a>
+                
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 text-center">
+                    <p class="text-slate-600 font-bold mb-2 text-lg">الخطوة التالية</p>
+                    <p class="text-slate-400 text-sm">
+                        يمكنك الآن إغلاق هذه الصفحة والعودة للتطبيق لتسجيل الدخول
+                    </p>
+                </div>
 
                 <div class="text-center mt-6">
                     <p class="text-slate-400 text-sm">
