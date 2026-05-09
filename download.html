@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جاري التحويل - Redirecting</title>
+    <script>
+        function redirectDevice() {
+            // Replace these with your actual Habayib store links
+            const iosLink = "YOUR_APP_STORE_LINK_HERE";
+            const androidLink = "YOUR_PLAY_STORE_LINK_HERE";
+            const desktopFallback = "YOUR_WEBSITE_LINK_HERE"; // Optional: where desktop users go
+
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // 1. Check for iOS (iPhone, iPad, iPod)
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // Using 'replace' instead of 'assign' so the user doesn't get stuck in a "Back button" loop
+                window.location.replace(iosLink);
+                return;
+            }
+
+            // 2. Check for Android
+            if (/android/i.test(userAgent)) {
+                window.location.replace(androidLink);
+                return;
+            }
+
+            // 3. Fallback for Desktop or unknown devices
+            // Uncomment the line below if you want desktop users to go to your main site automatically
+            // window.location.replace(desktopFallback);
+        }
+
+        // Run the redirect as soon as the page loads
+        window.onload = redirectDevice;
+    </script>
+    <style>
+        /* A clean, minimal fallback UI just in case the internet is slow or they are on Desktop */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fdfdfd;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        a.button {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+        .btn-apple { background-color: #000; color: #fff; }
+        .btn-google { background-color: #108151; color: #fff; }
+        a.button:hover { opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Optional logo could go here -->
+        <h2>جاري تحويلك إلى المتجر...</h2>
+        <p style="color: #666; font-size: 14px;">إذا لم يتم تحويلك تلقائياً، يرجى اختيار متجرك أدناه.</p>
+        
+        <div class="buttons">
+            <a href="YOUR_APP_STORE_LINK_HERE" class="button btn-apple">تحميل من App Store</a>
+            <a href="YOUR_PLAY_STORE_LINK_HERE" class="button btn-google">تحميل من Google Play</a>
+        </div>
+    </div>
+</body>
+</html>
